@@ -62,7 +62,7 @@ body {
 
 <div class="form-container">
   <h2>Formulir Pendaftaran</h2>
-  <form action="#">
+  <form action="#" id="registrationForm">
     <div class="input-container">
       <i class="fas fa-user icon"></i> <!-- Icon user -->
       <input class="input-field" type="text" placeholder="Nama" name="nama">
@@ -86,6 +86,14 @@ body {
     <button type="submit" class="btn">Registrasi</button>
   </form>
 </div>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(event){
+  event.preventDefault();
+  alert("Pendaftaran akun telah sukses!");
+  window.location.href = "index.html";
+});
+</script>
 
 </body>
 </html>
