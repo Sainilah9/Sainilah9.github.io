@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halaman Utama</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Menambahkan Font Awesome CSS -->
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-weight: bold;
+}
+
+.saldo, .bonus-saldo {
+  margin-bottom: 15px;
+}
+
+.saldo input, .bonus-saldo input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.saldo input[readonly], .bonus-saldo input[readonly] {
+  background-color: #f2f2f2;
+  cursor: not-allowed;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu i {
+  font-size: 24px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Halo, Nomor Handphone Anda</h2>
+  <p>Ini adalah halaman utama setelah login.</p>
+  <p>Silakan lihat informasi saldo dan bonus saldo referal Anda di bawah ini:</p>
+  
+  <div class="saldo">
+    <label class="label">Saldo:</label>
+    <input type="text" value="100000" readonly> <!-- Ganti value dengan saldo aktual -->
+  </div>
+  
+  <div class="bonus-saldo">
+    <label class="label">Bonus Saldo Referal:</label>
+    <input type="text" value="50000" readonly> <!-- Ganti value dengan bonus saldo referal aktual -->
+  </div>
+  
+  <a href="#" class="btn">Logout</a>
+</div>
+
+<div class="menu">
+  <a href="#"><i class="fas fa-home"></i> Menu Utama</a>
+  <a href="#"><i class="fas fa-money-check-alt"></i> Status Transaksi</a>
+  <a href="#"><i class="fas fa-question-circle"></i> Bantuan</a>
+  <a href="#"><i class="fas fa-user-circle"></i> Akun Saya</a>
+</div>
+
+</body>
+</html>
