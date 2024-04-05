@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#2f539b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrasi-Akun</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Menambahkan Font Awesome CSS -->
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #222;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: #2f539b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #2f539b;
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Formulir Pendaftaran</h2>
+  <form action="#">
+    <div class="input-container">
+      <i class="fas fa-user icon"></i> <!-- Icon user -->
+      <input class="input-field" type="text" placeholder="Nama" name="nama">
+    </div>
+    <div class="input-container">
+      <i class="fas fa-phone icon"></i> <!-- Icon phone -->
+      <input class="input-field" type="text" placeholder="Nomor Handphone" name="nomor_hp">
+    </div>
+    <div class="input-container">
+      <i class="fas fa-lock icon"></i> <!-- Icon lock -->
+      <input class="input-field" type="password" placeholder="Kata Sandi" name="password1">
+    </div>
+    <div class="input-container">
+      <i class="fas fa-lock icon"></i> <!-- Icon lock -->
+      <input class="input-field" type="password" placeholder="Konfirmasi Kata Sandi" name="password2">
+    </div>
+    <div class="input-container">
+      <i class="fas fa-tag icon"></i> <!-- Icon tag -->
+      <input class="input-field" type="text" placeholder="Kode Referal" name="referal" value="5FZR7C" readonly> <!-- Nilai readonly -->
+    </div>
+    <button type="submit" class="btn">Registrasi</button>
+  </form>
+</div>
+
+</body>
+</html>
