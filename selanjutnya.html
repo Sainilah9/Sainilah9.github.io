@@ -4,157 +4,111 @@
   <meta charset="UTF-8">
   <meta name="theme-color" content="#2f539b">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halaman Utama</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Menu Halaman Selanjutnya</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #222;
       margin: 0;
       padding: 0;
-      margin-top:-60px;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 50px auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .label {
-      font-weight: bold;
-    }
-
-    .saldo, .bonus-saldo {
-      margin-bottom: 15px;
-    }
-
-    .saldo input, .bonus-saldo input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-      margin-top: 5px;
-      font-size: 16px;
-    }
-
-    .saldo input[readonly], .bonus-saldo input[readonly] {
-      background-color: #f2f2f2;
-      cursor: not-allowed;
-    }
-
-    .btn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 88%;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    .menu {
       display: flex;
       flex-direction: column;
-      margin-top: -60px;
-    }
-
-    .menu-item {
-      display: flex;
       align-items: center;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-top: none;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative; /* Tambahkan posisi relatif */
+    }
+
+    .icon {
+      width: 80px; /* Mengurangi ukuran ikon */
+      height: 80px; /* Mengurangi ukuran ikon */
+      margin: 5px; /* Mengurangi margin ikon */
+      background-size: cover;
+      background-position: center;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-decoration: none; /* Menghapus tanda garis bawah */
-      color: inherit; /* Menggunakan warna teks bawaan */
-      border-radius:8px;
-      margin-top:8px;
     }
 
-    .menu-item:first-child {
-      border-top: 1px solid #ccc;
-      border-radius:4px;
+    .winner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      max-height: 200px; /* Batas ketinggian untuk membuat elemen berjalan */
+      overflow: hidden; /* Mengatur overflow untuk membatasi elemen */
     }
 
-    .menu-item:hover {
-      background-color: #f0f0f0;
+    .winner {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 5px;
+      max-width: 300px; /* Mengatur lebar maksimum untuk kolom nomor pemenang */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      animation: slide 10s linear infinite; /* Animasi untuk membuat elemen bergerak */
     }
 
-    .menu-item .icon {
-      margin-right: 10px;
-      border-radius:8px;
-      font-size: 10px;
+    @keyframes slide {
+      0% { transform: translateY(-100%); } /* Mulai dari posisi di atas */
+      100% { transform: translateY(100%); } /* Berakhir di bawah */
+    }
+
+    .bottom-icon-container {
+      display: flex;
+      justify-content: space-between;
+      width: 320px; /* Lebar total dari empat icon */
+      position: absolute; /* Tambahkan posisi absolut */
+      bottom: 20px; /* Jarak dari bawah */
+      background-color: #fff; /* Warna latar hijau tua */
+      padding: 10px; /* Ruang dalam untuk icon */
+      border-radius: 10px; /* Sudut bulat */
+    }
+
+    .bottom-icon {
+      width: 70px; /* Mengurangi ukuran icon */
+      height: 70px; /* Mengurangi ukuran icon */
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <h2>Halo, Nomor Handphone Anda</h2>
-  <p>Selamat Datang.</p>
-  <p>Saldo dan bonus saldo referal Anda di bawah ini:</p>
-  
-  <div class="saldo">
-    <label class="label">Saldo:</label>
-    <input type="text" id="saldoInput" value="" readonly> <!-- Ganti value dengan saldo aktual -->
+  <div class="icon-container">
+    <div class="icon" style="background-image: url('https://i.ibb.co/B4bFcs8/CC-20240407-151834.png');" onclick="redirectTo('halaman1.html')"></div>
+    <div class="icon" style="background-image: url('https://i.ibb.co/TLmRv6B/CC-20240407-151951.png');" onclick="redirectTo('halaman2.html')"></div>
+    <div class="icon" style="background-image: url('https://i.ibb.co/VVTr3Nt/CC-20240407-152118.png');" onclick="redirectTo('halaman3.html')"></div>
+    <div class="icon" style="background-image: url('https://i.ibb.co/r4cbrrL/CC-20240407-152409.png');" onclick="redirectTo('halaman4.html')"></div>
   </div>
-  
-  <div class="bonus-saldo">
-    <label class="label">Bonus Saldo Referal:</label>
-    <input type="text" id="bonusSaldoInput" value="50000" readonly> <!-- Ganti value dengan bonus saldo referal aktual -->
+
+  <div class="winner-container">
+    <div class="winner">0812xxxxx144 berhasil withdraw Rp 1.000.000</div>
+    <div class="winner">0819xxxxx132 berhasil withdraw Rp 3.000.000</div>
+    <div class="winner">0877xxxxx145 berhasil withdraw Rp 8.000.000</div>
+    <div class="winner">0881xxxxx93 berhasil withdraw Rp 9.000.000</div>
+    <div class="winner">0882xxxxx816 berhasil withdraw Rp 10.000.000</div>
+    <div class="winner">0857xxxxx113 berhasil withdraw Rp 12.000.000</div>
   </div>
-  
-  <a href="#" class="btn">Logout</a>
-</div>
 
-<div class="menu">
-  <a href="halaman_selanjutnya.html" class="menu-item">
-    <span class="icon"><i class="fas fa-money-check"></i></span>Pinjaman Saya
-  </a>
-  <a href="persetujuan.html" class="menu-item">
-    <span class="icon"><i class="fas fa-check-circle"></i></span>Persetujuan
-  </a>
-  <a href="pernyataan_pembukaan.html" class="menu-item">
-    <span class="icon"><i class="fas fa-file-alt"></i></span>Pernyataan Pembukaan
-  </a>
-  <a href="umpan_balik.html" class="menu-item">
-    <span class="icon"><i class="fas fa-comment"></i></span>Umpan Balik
-  </a>
-  <a href="kartu_bank.html" class="menu-item">
-    <span class="icon"><i class="fas fa-credit-card"></i></span>Kartu Bank
-  </a>
-  <a href="hapus_info_pribadi.html" class="menu-item">
-    <span class="icon"><i class="fas fa-trash-alt"></i></span>Hapus Info Pribadi
-  </a>
-  <a href="keluar.html" class="menu-item">
-    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>Keluar
-  </a>
-</div>
+  <!-- Tambahkan 4 icon di bagian bawah -->
+  <div class="bottom-icon-container">
+    <div class="bottom-icon" style="background-image: url('https://i.ibb.co/3c4WrGm/1000005138-removebg-preview.png');" onclick="redirectTo('index.html')"></div>
+    <div class="bottom-icon" style="background-image: url('https://i.ibb.co/S33dPgH/Screenshot-20240408-164135-Gallery.jpg');" onclick="redirectTo('halaman6.html')"></div>
+    <div class="bottom-icon" style="background-image: url('https://i.ibb.co/mSWj6JW/1000005146-removebg-preview.png');" onclick="redirectTo('halaman7.html')"></div>
+    <div class="bottom-icon" style="background-image: url('https://i.ibb.co/VQq7KNM/1000005145-removebg-preview.png');" onclick="redirectTo('halaman8.html')"></div>
+  </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Cek apakah nomor handphone disimpan di Local Storage
-  if (localStorage.getItem("nomor_hp")) {
-    // Jika ada, ambil nilai dan tampilkan di atas kolom saldo
-    var nomor_hp = localStorage.getItem("nomor_hp");
-    document.querySelector("h2").innerHTML = "Halo, " + nomor_hp;
-  }
-});
-</script>
-
+  <script>
+    function redirectTo(destination) {
+      window.location.href = destination;
+    }
+  </script>
 </body>
 </html>
