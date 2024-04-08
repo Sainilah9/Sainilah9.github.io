@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2f539b">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekening-Member</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      margin-top:-20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-top: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .btn {
+      background-color: #2f539b;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #2f539b;
+    }
+
+    #rekeningList {
+      margin-top: 20px;
+    }
+
+    #tambahButton {
+      margin-bottom: 20px;
+    }
+
+    #rekeningForm {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .loading i {
+      font-size: 24px;
+      animation: spin 1s linear infinite;
+    }
+
+    .rekening-text {
+      font-size: 5px; /* Ubah ukuran teks ruang penyimpanan rekening */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Formulir Penyimpanan Rekening</h2>
+  <button id="tambahButton" class="btn" onclick="showForm()">Tambah</button>
+  <div id="rekeningForm">
+    <form onsubmit="saveRekening(event)">
+      <div class="form-group">
+        <label for="namaPengguna">Nama Pengguna:</label>
+        <input type="text" id="namaPengguna" name="namaPengguna" placeholder="Masukkan nama pengguna" required>
+      </div>
+      <div class="form-group">
+        <label for="bank">Nama Bank:</label>
+        <select id="bank" name="bank" required>
+          <option value="BCA">BCA</option>
+          <option value="BRI">BRI</option>
+          <option value="BNI">BNI</option>
+          <option value="Mandiri">Mandiri</option>
+          <option value="Bank Lain">Bank Lain</option>
+          
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nomorRekening">Nomor Rekening:</label>
+        <input type="text" id="nomorRekening" name="nomorRekening" placeholder="Masukkan nomor rekening" required>
+      </div>
+      <button type="submit" class="btn">Simpan</button>
+    </form>
+  </div>
+  <div id="rekeningList"></div>
+  <div class="loading" id="loading" style="display: none;"><i class="fa fa-spinner fa-spin"></i> Loading...</div>
+</div>
+
+<script>
+  var rekenings = [];
+  var loading = document.getElementById('loading');
+
+  function showForm() {
+    var tambahButton = document.getElementById("tambahButton");
+    var rekeningForm = document.getElementById("rekeningForm");
+    tambahButton.style.display = "none";
+    rekeningForm.style.display = "block";
+    loading.style.display = "block";
+    setTimeout(function() {
+      loading.style.display = "none";
+    }, 3000);
+  }
+
+  function saveRekening(event) {
+    event.preventDefault();
+    var namaPengguna = document.getElementById("namaPengguna").value;
+    var bank = document.getElementById("bank").value;
+    var nomorRekening = document.getElementById("nomorRekening").value;
+    loading.style.display = "block";
+    setTimeout(function() {
+      var rekening = {
+        namaPengguna: namaPengguna,
+        bank: bank,
+        nomorRekening: nomorRekening
+      };
+      rekenings.push(rekening);
+      localStorage.setItem("rekenings", JSON.stringify(rekenings));
+      displayRekenings();
+      var tambahButton = document.getElementById("tambahButton");
+      var rekeningForm = document.getElementById("rekeningForm");
+      tambahButton.style.display = "block";
+      rekeningForm.style.display = "none";
+      loading.style.display = "none";
+      document.getElementById("rekeningForm").reset();
+    }, 3000);
+  }
+
+  function displayRekenings() {
+    var rekeningList = document.getElementById("rekeningList");
+    rekeningList.innerHTML = "";
+    if (localStorage.getItem("rekenings")) {
+      rekenings = JSON.parse(localStorage.getItem("rekenings"));
+      rekenings.forEach(function(rekening, index) {
+        var p = document.createElement("p");
+        p.textContent = "Nama Pengguna: " + rekening.namaPengguna + ", Bank: " + rekening.bank + ", Nomor Rekening: " + rekening.nomorRekening;
+        p.classList.add("rekening-text"); // Tambahkan kelas CSS untuk mengubah ukuran teks
+        rekeningList.appendChild(p);
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
