@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2f539b">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Utama</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      margin-top:-60px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .saldo, .bonus-saldo {
+      margin-bottom: 15px;
+      display: inline-block; /* Menampilkan kolom dalam satu baris */
+      width: calc(50% - 5px); /* Mengatur lebar masing-masing kolom */
+    }
+
+    .saldo input, .bonus-saldo input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    .saldo input[readonly], .bonus-saldo input[readonly] {
+      background-color: #f2f2f2;
+      cursor: not-allowed;
+    }
+
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%; /* Mengubah lebar menjadi 100% */
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      margin-top: -60px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-top: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none; /* Menghapus tanda garis bawah */
+      color: inherit; /* Menggunakan warna teks bawaan */
+      border-radius:8px;
+      margin-top:8px;
+    }
+
+    .menu-item:first-child {
+      border-top: 1px solid #ccc;
+      border-radius:4px;
+    }
+
+    .menu-item:hover {
+      background-color: #f0f0f0;
+    }
+
+    .menu-item .icon {
+      margin-right: 10px;
+      border-radius:8px;
+      font-size: 10px;
+    }
+
+    /* Menambahkan gaya untuk elemen logout */
+    .logout-container {
+      margin-top: auto; /* Memindahkan logout ke bawah menu pilihan */
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Halo, Nomor Handphone Anda</h2>
+  <p>Selamat Datang.</p>
+  <p>Saldo dan bonus saldo referal Anda di bawah ini:</p>
+  
+  <div class="saldo">
+    <label class="label">Saldo:</label>
+    <input type="text" id="saldoInput" value="Rp. 0" readonly> <!-- Ganti value dengan saldo aktual -->
+  </div>
+  
+  <div class="bonus-saldo">
+    <label class="label">Bonus Saldo Referal:</label>
+    <input type="text" id="bonusSaldoInput" value="Rp. 50.000" readonly> <!-- Ganti value dengan bonus saldo referal aktual -->
+  </div>
+</div>
+
+<div class="menu">
+  <a href="halaman_selanjutnya.html" class="menu-item">
+    <span class="icon"><i class="fas fa-money-check"></i></span>Pinjaman Saya
+  </a>
+  <a href="persetujuan.html" class="menu-item">
+    <span class="icon"><i class="fas fa-check-circle"></i></span>Persetujuan
+  </a>
+  <a href="pernyataan_pembukaan.html" class="menu-item">
+    <span class="icon"><i class="fas fa-file-alt"></i></span>Pernyataan Pembukaan
+  </a>
+  <a href="umpan_balik.html" class="menu-item">
+    <span class="icon"><i class="fas fa-comment"></i></span>Umpan Balik
+  </a>
+  <a href="kartu_bank.html" class="menu-item">
+    <span class="icon"><i class="fas fa-credit-card"></i></span>Kartu Bank
+  </a>
+  <a href="hapus_info_pribadi.html" class="menu-item">
+    <span class="icon"><i class="fas fa-trash-alt"></i></span>Hapus Info Pribadi
+  </a>
+  
+  <!-- Memindahkan tombol logout ke dalam menu -->
+  <div class="menu-item logout-container">
+    <a href="keluar.html" class="btn">Keluar</a>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Cek apakah nomor handphone disimpan di Local Storage
+  if (localStorage.getItem("nomor_hp")) {
+    // Jika ada, ambil nilai dan tampilkan di atas kolom saldo
+    var nomor_hp = localStorage.getItem("nomor_hp");
+    document.querySelector("h2").innerHTML = "Halo, " + nomor_hp;
+  }
+});
+</script>
+
+</body>
+</html>
