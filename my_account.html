@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#2f539b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Box Shadow</title>
+<style>
+body {
+    background-color: #2f539b; /* Warna latar belakang untuk halaman */
+            overflow-x: hidden; /* Tambahkan properti ini untuk mencegah gerakan ke samping */
+}
+
+.saldo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent; /* Ubah latar belakang kontainer saldo menjadi transparan */
+    margin-top: -320px;
+}
+
+.saldo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.saldo-label {
+    font-size: 1.1em;
+    color: #222;
+}
+
+.saldo-amount {
+    font-size: 1.2em;
+    margin-right: 5px;
+    color: #222;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 15px;
+    right: 300px;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    border-radius: 20%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    z-index: 2;
+    background-image: url('https://i.ibb.co/VTzcbmb/1000002934-removebg-preview.png');
+}
+
+.eye-icon:hover {
+    background-image: url('https://i.ibb.co/FV3skND/1000002938-removebg-preview.png');
+}
+
+.saldo-box {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.5);
+    padding-top: 50px;
+    top:30px;
+    border-bottom: 6px solid #222;
+            width: 319px;
+}
+
+.menu-box {
+    width: 365px;
+    height: 240px;
+    overflow-y: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 0;
+    background-color: #fff; /* Warna latar belakang box menu */
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 2px solid #222;
+}
+
+.menu-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #222;
+}
+
+.box-shadow-menu {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.box {
+    position: relative;
+    height: 100px;
+    width: 365px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+    margin-top:-230px;
+}
+
+.icon-text {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon-text .item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.icon-text .item img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.icon-text .item:first-child {
+    margin-right: 69px;
+    margin-top:30px;
+}
+
+.icon-text .item:last-child {
+    margin-left: 69px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+<div class="saldo-container">
+    <div class="saldo-wrapper">
+        <div class="saldo-box">
+            <span class="saldo-label">Saldo Anda:</span>
+            <span class="saldo-amount" id="saldo-amount">Rp. 1.000.000</span>
+            <button class="eye-icon" id="eye-toggle"></button>
+        </div>
+    </div>
+</div>
+
+<div class="box-shadow-menu">
+    <div class="box">
+        <div class="icon-text">
+            <div class="item" onclick="window.location.href='deposit.html'">
+                <img src="https://i.ibb.co/YhQysv2/CC-20240411-100546-removebg-preview.png" alt="Deposit">
+                <span>Deposit</span>
+            </div>
+            <div class="item" onclick="window.location.href='withdraw.html'">
+                <img src="https://i.ibb.co/y6hMyfX/CC-20240411-100643-removebg-preview.png" alt="Withdraw">
+                <span>Withdraw</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="menu-box">
+    <div class="menu-item">
+        <img src="https://i.ibb.co/52MMq0m/1000005353-removebg-preview.png" alt="Riwayat Top up">
+        <a href="riwayat_topup.html">Riwayat Top up</a>
+    </div>
+    <div class="menu-item">
+        <img src="https://i.ibb.co/zb2nsMM/1000005354-removebg-preview.png" alt="Riwayat Penarikan">
+        <a href="riwayat_penarikan.html">Riwayat Penarikan</a>
+    </div>
+    <div class="menu-item">
+    <img src="https://i.ibb.co/KbBF42F/1000005358-removebg-preview.png" alt="Profil">
+    <a href="profil.html">Profil</a>
+  </div>
+  <div class="menu-item">
+    <img src="https://i.ibb.co/3Fq4gT7/1000005352-removebg-preview.png" alt="Pesan Saya">
+    <a href="pesan.html">Pesan Saya</a>
+  </div>
+  <div class="menu-item">
+    <img src="https://i.ibb.co/tB4bXHD/1000005360-removebg-preview.png" alt="Layanan Pelanggan">
+    <a href="layanan.html">Layanan Pelanggan</a>
+  </div>
+</div>
+<script>
+const eyeIcon = document.getElementById('eye-toggle');
+const saldoAmount = document.getElementById('saldo-amount');
+
+let saldoVisible = true;
+
+eyeIcon.addEventListener('click', toggleSaldoVisibility);
+
+function toggleSaldoVisibility() {
+    saldoVisible = !saldoVisible;
+    if (saldoVisible) {
+        saldoAmount.style.visibility = 'visible';
+    } else {
+        saldoAmount.style.visibility = 'hidden';
+    }
+}
+</script>
+</body>
+</html>
