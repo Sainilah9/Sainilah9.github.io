@@ -15,7 +15,7 @@ body {
 
 .form-container {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 50px auto 0;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -84,6 +84,23 @@ body {
     75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
 }
+/* Aturan CSS untuk teks "Sudah Punya Akun?" */
+.form-container a {
+  display: block; /* Membuat tautan menjadi blok sehingga dapat diatur marginnya */
+  margin-top: 18px; /* Menambahkan margin di atas tautan */
+  text-align: center; /* Pusatkan teks */
+  color: white; /* Warna teks */
+  text-decoration: none; /* Hapus dekorasi tautan */
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 190px;
+}
+
+/* Efek hover untuk tautan */
+.form-container a:hover {
+  text-decoration: underline; /* Garis bawah saat dihover */
+}
+
 </style>
 </head>
 <body>
@@ -116,6 +133,7 @@ body {
         <img src="https://raw.githubusercontent.com/Sainilah9/Sainilah9.github.io/main/hug.gif" alt="Loading GIF">
     </div>
     <button type="submit" class="btn">Registrasi</button>
+    <a href="iniasli.html" style="text-decoration: none; color: white;">Sudah Punya Akun?</a>
   </form>
 </div>
 
