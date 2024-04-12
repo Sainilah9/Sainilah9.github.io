@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="theme-color" content="#2f539b">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun-SAYA</title>
+    <style>
+        /* CSS Untuk Slider */
+        .slider {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        /* CSS Untuk Box Ikon di Bagian Bawah */
+        .bottom-box {
+            position: fixed;
+            bottom: 0;
+            margin-left: -18px;
+            width: 100%;
+            background: #8b0000;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            color:white;
+            justify-content: space-evenly;
+            padding: 10px;
+            z-index: 999; /* Pastikan box berada di atas konten lain */
+        }
+
+        .bottom-box .icon-text {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bottom-box .icon-text img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            border-radius: 50%; /* Bulatkan sudut ikon */
+        }
+
+        .bottom-box .icon-text span {
+            font-size: 14px;
+        }
+
+        /* CSS Untuk Box Ikon di Bagian Atas */
+        .top-box {
+            position: center;
+            top: 0;
+            margin-left: 27px;
+            width: 80%;
+            background: #8b0000;
+            color:white;
+            border-radius: 0 0 60px 60px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            z-index: 999; /* Pastikan box berada di atas konten lain */
+        }
+
+        .top-box .icon-text {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .top-box .icon-text img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            border-radius: 50%; /* Bulatkan sudut ikon */
+        }
+
+        .top-box .icon-text span {
+            font-size: 19px;
+        }
+
+        /* CSS untuk Pilihan Select */
+        .selection-container {
+            display: flex;
+            overflow-x: auto; /* Membuat container horizontal scrollable */
+            border: 2px solid #2f539b; /* Tambahkan garis batas dengan warna tertentu */
+            padding: 10px; /* Tambahkan padding agar jarak antara garis batas dan konten */
+            justify-content: space-around; /* Menyusun item secara merata di sekitar */
+            margin-top:10px;
+        }
+
+        .option {
+            flex: 0 0 auto;
+            text-align: center;
+            background-color: #2f539b; /* Tambahkan lapisan warna pada pilihan */
+            padding: 6px; /* Tambahkan padding agar jarak antara kotak dan teks */
+            border-radius: 5px; /* Tambahkan sudut lengkung pada kotak */
+            text-decoration: none; /* Hilangkan garis bawah pada teks */
+            color: white; /* Tambahkan warna teks putih */
+            margin: 0 10px; /* Atur margin untuk jarak antara kiri dan kanan */
+        }
+
+        .option p {
+            margin: 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="https://i.ibb.co/8mzzH5m/images.jpg" alt="Slide 1">
+            <img src="https://i.ibb.co/tHW6Lnb/1000005394-removebg-preview.png" alt="Slide 2">
+            <!-- Tambahkan gambar-gambar baru di sini -->
+            <img src="https://i.ibb.co/8mzzH5m/images.jpg" alt="Slide 3">
+            <img src="https://i.ibb.co/tHW6Lnb/1000005394-removebg-preview.png" alt="Slide 4">
+        </div>
+    </div>
+
+    
+<div class="top-box">
+    <div class="icon-text" onclick="window.location.href='homepage.html'">
+        <img src="https://i.ibb.co/YhQysv2/CC-20240411-100546-removebg-preview.png" alt="Homepage">
+        <span>Deposit</span>
+    </div>
+
+    <div class="icon-text" onclick="window.location.href='my_account.html'">
+        <img src="https://i.ibb.co/y6hMyfX/CC-20240411-100643-removebg-preview.png" alt="My Account">
+        <span>Penarikan</span>
+    </div>
+    </div>
+
+    <!-- Box Ikon di Bagian Bawah -->
+    <div class="bottom-box">
+    <div class="icon-text" onclick="window.location.href='homepage.html'">
+        <img src="https://i.ibb.co/gm4Q9sX/1000005428-removebg-preview.png" alt="Homepage">
+        <span>Utama</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='tasks.html'">
+        <img src="https://i.ibb.co/k2xnTfp/CC-20240412-141926.png" alt="Tasks">
+        <span>Tugas</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='team.html'">
+        <img src="https://i.ibb.co/NZtDjST/CC-20240412-140751.png" alt="Team">
+        <span>Tim</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='my_account.html'">
+        <img src="https://i.ibb.co/vhYS1J4/1000005427-removebg-preview.png" alt="My Account">
+        <span>Akun</span>
+    </div>
+    </div>
+
+    <!-- Pilihan Select -->
+    <div class="selection-container">
+        <a href="product1.html" class="option">
+            <p>VIP1</p>
+            <p>Tugas: 5</p>
+        </a>
+        <a href="product2.html" class="option">
+            <p>VIP2</p>
+            <p>Tugas: 10</p>
+        </a>
+        <a href="product3.html" class="option">
+            <p>VIP3</p>
+            <p>Tugas: 10</p>
+        </a>
+    </div>
+
+    <!-- Script untuk Slider -->
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelector('.slides');
+        const slide = document.querySelectorAll('.slides img');
+
+        let index = 0;
+        let slideWidth = slide[0].clientWidth;
+
+        function nextSlide() {
+            index++;
+            slides.style.transition = 'transform 0.5s ease-in-out';
+            slides.style.transform = `translateX(${-index * slideWidth}px)`;
+
+            if (index === slide.length - 2) {
+                setTimeout(() => {
+                    slides.style.transition = 'none';
+                    index = 0;
+                    slides.style.transform = `translateX(0)`;
+                }, 500); // Delay before resetting
+            }
+        }
+
+        setInterval(nextSlide, 2000);
+    </script>
+</body>
+</html>
