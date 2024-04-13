@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="theme-color" content="#2f539b">
+    <meta name="theme-color" content="8b0000">
+     <meta property="og:image" content="https://i.ibb.co/37D3vQB/Screenshot-20240413-194745-Acode.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akun-SAYA</title>
     <style>
@@ -11,6 +12,7 @@
             width: 100%;
             margin: 0 auto;
             overflow: hidden;
+            
         }
 
         .slides {
@@ -99,7 +101,7 @@
         .selection-container {
             display: flex;
             overflow-x: auto; /* Membuat container horizontal scrollable */
-            border: 2px solid #2f539b; /* Tambahkan garis batas dengan warna tertentu */
+            border: 0px solid #8b0000; /* Tambahkan garis batas dengan warna tertentu */
             padding: 10px; /* Tambahkan padding agar jarak antara garis batas dan konten */
             justify-content: space-around; /* Menyusun item secara merata di sekitar */
             margin-top:10px;
@@ -108,9 +110,9 @@
         .option {
             flex: 0 0 auto;
             text-align: center;
-            background-color: #2f539b; /* Tambahkan lapisan warna pada pilihan */
+            background-color: #8b0000; /* Tambahkan lapisan warna pada pilihan */
             padding: 6px; /* Tambahkan padding agar jarak antara kotak dan teks */
-            border-radius: 5px; /* Tambahkan sudut lengkung pada kotak */
+            border-radius: 8px; /* Tambahkan sudut lengkung pada kotak */
             text-decoration: none; /* Hilangkan garis bawah pada teks */
             color: white; /* Tambahkan warna teks putih */
             margin: 0 10px; /* Atur margin untuk jarak antara kiri dan kanan */
@@ -120,6 +122,50 @@
             margin: 0;
             font-size: 18px;
         }
+        .container {
+    border: 2px solid #2f539b; /* warna dan ketebalan garis batas disesuaikan */
+    padding: 4px;
+    border-radius: 5px; /* menambahkan sudut lengkung pada kotak lapisan */
+    width: 300px; /* sesuaikan lebar kotak lapisan */
+    margin: 0 auto; /* memposisikan kotak lapisan di tengah */
+    position: relative;
+    overflow: hidden; /* menu yang bergerak hanya terlihat di dalam kotak lapisan */
+    height: 230px; /* Memperpanjang kotak lapisan ke bawah */
+    background-color:#222;
+    color:#ffffff;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: menu-animation 10s linear infinite; /* Mengulangi animasi secara otomatis */
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 3px solid #8b0000; /* menambahkan garis batas antara setiap menu */
+  }
+
+  .menu-item img {
+    width: 50px; /* Sesuaikan ukuran ikon dengan kebutuhan */
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  @keyframes menu-animation {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
     </style>
 </head>
 <body>
@@ -146,6 +192,7 @@
         <span>Penarikan</span>
     </div>
     </div>
+   
 
     <!-- Box Ikon di Bagian Bawah -->
     <div class="bottom-box">
@@ -171,17 +218,46 @@
     <div class="selection-container">
         <a href="product1.html" class="option">
             <p>VIP1</p>
-            <p>Tugas: 5</p>
+            <p>10 Tugas </p>
         </a>
         <a href="product2.html" class="option">
             <p>VIP2</p>
-            <p>Tugas: 10</p>
+            <p>10 Tugas </p>
         </a>
         <a href="product3.html" class="option">
             <p>VIP3</p>
-            <p>Tugas: 10</p>
+            <p>10 Tugas </p>
         </a>
     </div>
+     <div class="container">
+  <div class="menu">
+    <div class="menu-item">
+      <img src="https://i.ibb.co/wrxf8BG/CC-20240412-205432.png" alt="Menu 1">
+      <span>Ari**** **** Berhasil Withdraw Rp. 59.000.000</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.ibb.co/X8N2vYr/CC-20240412-205212.png" alt="Menu 2">
+      <span>Edi**** Berhasil Withdraw Rp. 10.000.000</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.ibb.co/pLFXy0c/CC-20240412-204937.png" alt="Menu 3">
+      <span>Agus**** **** Berhasil Withdraw Rp. 17.000.000</span>
+    </div>
+    <!-- Duplicate the menu items to create a continuous animation effect -->
+    <div class="menu-item">
+      <img src="https://i.ibb.co/wrxf8BG/CC-20240412-205432.png" alt="Menu 1">
+      <span>Susa*** **** Berhasil Withdraw Rp. 19.000.000</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.ibb.co/X8N2vYr/CC-20240412-205212.png" alt="Menu 2">
+      <span>Ari **** Berhasil Withdraw Rp. 8.000.000</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.ibb.co/pLFXy0c/CC-20240412-204937.png" alt="Menu 3">
+      <span>Eko**** **** Berhasil Withdraw Rp. 4.000.000</span>
+    </div>
+  </div>
+</div>
 
     <!-- Script untuk Slider -->
     <script>
