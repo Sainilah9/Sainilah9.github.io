@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Up</title>
+<style>
+.Red-text {
+  color: Red;
+  font-size: 15px;
+  margin-right:240px;
+  margin-left:30px;
+  font-weight:bold;
+  text-align: center; /* Mengatur teks ke tengah secara horizontal */
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #8b0000; /* Menambahkan garis batas pada radio-container */
+    padding: 20px; /* Menambahkan ruang di sekitar radio-container */
+    border-radius: 10px; /* Memberi border-radius pada radio-container */
+}
+
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+.radio-container label {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.radio-container label img {
+    width: 120px; /* Sesuaikan lebar gambar */
+    height: auto;
+}
+
+.radio-container input[type="radio"]:checked + label img {
+    border: 2px solid #8b0000; /* Contoh: tambahkan border ketika dipilih */
+    border-radius:10px;
+}
+
+.input-container {
+    position: relative;
+    margin: 20px;
+}
+
+.input-field {
+    padding: 13px 40px; /* atur padding atas dan bawah serta kiri dan kanan */
+    border: 2px solid #840000;
+    border-radius: 5px;
+    width: 350px;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    margin-left:-15px;
+    background-image: url('https://i.ibb.co/Jr0hpC8/1000005533-removebg-preview.png');
+    background-size: 30px; /* memperkecil ukuran ikon */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* posisi ikon */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden; /* Hindari garis vertikal terlihat di luar batas kolom */
+    margin: 5px; /* Memberikan jarak 5px di atas, bawah, kanan, dan kiri antara kolom-kolom */
+}
+
+.column input[type="radio"] {
+    display: none;
+}
+
+.column label {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #222; /* Tambahkan garis batas di bawah setiap opsi nominal */
+    cursor: pointer;
+    margin: 0; /* Menghapus margin bawaan untuk mengontrol margin sendiri */
+}
+
+.column label:first-child {
+    margin-top: 5px; /* Memberikan jarak 5px di atas opsi nominal pertama */
+}
+
+.column label:not(:first-child) {
+    margin-top: 10px; /* Memberikan jarak 10px di antara setiap opsi nominal kecuali yang pertama */
+}
+
+.column label:last-child {
+    border-bottom: none; /* Hapus garis batas di bawah opsi nominal terakhir */
+    margin-bottom: 5px; /* Memberikan jarak 5px di bawah opsi nominal terakhir */
+}
+
+.column input[type="radio"]:checked + label {
+    background-color: lightblue;
+    border-radius:10px;
+}
+
+.button {
+    text-align: center;
+    margin-top: 5px; /* Memberikan jarak 5px di atas tombol Top Up */
+}
+
+.button button {
+    padding: 15px 160px;
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top:50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button button:hover {
+    background-color: #8b0000;
+}
+
+/* CSS Untuk Box Ikon di Bagian Bawah */
+.bottom-box {
+    position: fixed;
+    bottom: 0;
+    margin-left: -18px;
+    width: 100%;
+    background: #8b0000;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    color:white;
+    justify-content: space-evenly;
+    padding: 10px;
+    z-index: 999; /* Pastikan box berada di atas konten lain */
+}
+
+.bottom-box .icon-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bottom-box .icon-text img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 50%; /* Bulatkan sudut ikon */
+}
+
+.bottom-box .icon-text span {
+    font-size: 14px;
+}
+
+/* CSS Untuk Overlay Loading */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang transparan */
+    display: none; /* Sembunyikan secara default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Pastikan overlay di atas konten lain */
+}
+
+.overlay img {
+    width: 30px; /* Sesuaikan ukuran gambar loading */
+    height: auto;
+}
+
+/* CSS Untuk Tampilan Lapisan Hitam */
+.black-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang transparan */
+    display: none; /* Sembunyikan secara default */
+    z-index: 1000; /* Pastikan lapisan di atas konten lain */
+}
+
+.selected-amount {
+    position: absolute;
+    top: 30%; /* Atur posisi vertikal */
+    left: 50%; /* Atur posisi horizontal */
+    transform: translate(-50%, -50%); /* Pusatkan elemen */
+    background-color: white; /* Atur warna latar belakang */
+    padding: 80px;
+    border-radius: 10px;
+    z-index: 1001; /* Pastikan konten di atas lapisan */
+    width: 80%; /* Atur lebar sesuai kebutuhan */
+    max-width: 200px; /* Atur lebar maksimum jika diperlukan */
+    height: auto; /* Biarkan tinggi menyesuaikan konten di dalamnya */
+    overflow: hidden; /* Hindari konten meluas keluar lapisan */
+    text-align: center; /* Atur teks ke tengah */
+    background-image: url('https://i.ibb.co/Jr0hpC8/1000005533-removebg-preview.png'); /* Ganti URL_GAMBAR_ANDA dengan URL gambar yang diinginkan */
+    background-size: cover; /* Penyesuaian ukuran gambar latar belakang */
+    background-position: center; /* Penyesuaian posisi gambar latar belakang */
+}
+
+
+/* CSS Untuk Box Ikon di Bagian Bawah */
+        .bottom-box {
+            position: fixed;
+            bottom: 0;
+            margin-left: -18px;
+            width: 100%;
+            background: #8b0000;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            color:white;
+            justify-content: space-evenly;
+            padding: 10px;
+            z-index: 999; /* Pastikan box berada di atas konten lain */
+        }
+
+        .bottom-box .icon-text {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bottom-box .icon-text img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            border-radius: 50%; /* Bulatkan sudut ikon */
+        }
+
+        .bottom-box .icon-text span {
+            font-size: 14px;
+        }
+</style>
+</head>
+<body>
+  <p class="right-align Red-text">Deposit Akun</p>
+  <div class="input-container">
+    <input type="text" class="input-field" id="jumlahInput" placeholder="Masukkan jumlah" oninput="updateNominal()">
+  </div>
+
+  <div class="container">
+    <div class="column">
+      <input type="radio" id="nominal1" name="nominal" value="300000">
+      <label for="nominal1">Rp.300.000</label>
+
+      <input type="radio" id="nominal2" name="nominal" value="500000">
+      <label for="nominal2">Rp.500.000</label>
+
+      <input type="radio" id="nominal3" name="nominal" value="750000">
+      <label for="nominal3">Rp.750.000</label>
+
+      <input type="radio" id="nominal4" name="nominal" value="1000000">
+      <label for="nominal4">Rp.1.000.000</label>
+    </div>
+
+    <div class="column">
+      <input type="radio" id="nominal5" name="nominal" value="1500000">
+      <label for="nominal5">Rp.1.500.000</label>
+
+      <input type="radio" id="nominal6" name="nominal" value="2000000">
+      <label for="nominal6">Rp.2.000.000</label>
+
+      <input type="radio" id="nominal7" name="nominal" value="2500000">
+      <label for="nominal7">Rp.2.500.000</label>
+
+      <input type="radio" id="nominal8" name="nominal" value="3000000">
+      <label for="nominal8">Rp.3.000.000</label>
+    </div>
+  </div>
+
+  <div class="radio-container">
+    <input type="radio" id="option1" name="option" value="option1">
+    <label for="option1"><img src="https://i.ibb.co/FBF9fhH/1000005531-removebg-preview.png" alt="Option 1"></label>
+
+    <input type="radio" id="option2" name="option" value="option2">
+    <label for="option2"><img src="https://i.ibb.co/FBF9fhH/1000005531-removebg-preview.png" alt="Option 2"></label>
+  </div>
+
+  <div class="button">
+    <button id="topUpButton" disabled>Top Up</button>
+  </div>
+  <div class="bottom-box">
+    <div class="icon-text" onclick="window.location.href='selanjutnya.html'">
+        <img src="https://i.ibb.co/gm4Q9sX/1000005428-removebg-preview.png" alt="Homepage">
+        <span>Utama</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='tugas.html'">
+        <img src="https://i.ibb.co/k2xnTfp/CC-20240412-141926.png" alt="Tasks">
+        <span>Tugas</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='team.html'">
+        <img src="https://i.ibb.co/NZtDjST/CC-20240412-140751.png" alt="Team">
+        <span>Tim</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='my_account.html'">
+        <img src="https://i.ibb.co/vhYS1J4/1000005427-removebg-preview.png" alt="My Account">
+        <span>Akun</span>
+    </div>
+    </div>
+
+  <!-- Overlay Loading -->
+  <div class="overlay" id="loadingOverlay">
+    <img src="https://raw.githubusercontent.com/Sainilah9/Sainilah9.github.io/main/hug.gif" alt="Loading...">
+  </div>
+
+  <!-- Notifikasi -->
+  <div class="black-overlay" id="blackOverlay" style="display: none;"></div>
+  <div class="selected-amount" id="selectedAmount" style="display: none; background-image: url('https://i.ibb.co/Jr0hpC8/1000005533-removebg-preview.png');">
+    <!-- Tulisan notifikasi tentang jumlah top up -->
+</div>
+
+
+<script>
+function updateNominal() {
+  var nominalInput = document.getElementById("jumlahInput");
+  var value = nominalInput.value.replace(/\D/g, ''); // Hapus karakter selain digit
+
+  // Format nilai Rupiah
+  var formattedValue = "Rp " + Number(value).toLocaleString("id-ID");
+
+  nominalInput.value = formattedValue;
+}
+
+document.getElementById("topUpButton").addEventListener("click", function() {
+  // Tampilkan overlay loading
+  document.getElementById("loadingOverlay").style.display = "flex"; // Ubah display menjadi flex
+
+  // Atur waktu tampilan loading selama 3 detik
+  setTimeout(function() {
+    // Sembunyikan overlay loading
+    document.getElementById("loadingOverlay").style.display = "none";
+
+    // Tampilkan lapisan hitam dengan nominal jumlah yang dipilih
+    var selectedNominal = document.querySelector('input[name="nominal"]:checked');
+    var selectedNominalValue = selectedNominal ? selectedNominal.value : "";
+    var selectedNominalLabel = selectedNominal ? selectedNominal.nextElementSibling.textContent : "";
+    var notificationContent = "Anda memilih jumlah top up sebesar " + selectedNominalLabel + " (" + selectedNominalValue + ")";
+
+    document.getElementById("selectedAmount").innerHTML = notificationContent;
+    document.getElementById("blackOverlay").style.display = "block";
+    document.getElementById("selectedAmount").style.display = "block";
+  }, 4000); // Tampilkan loading selama 3 detik
+});
+
+function checkInput() {
+  var selectedNominal = document.querySelector('input[name="nominal"]:checked');
+  var jumlahInput = document.getElementById("jumlahInput").value;
+
+if (!selectedNominal && !jumlahInput) {
+    document.getElementById("topUpButton").disabled = true;
+  } else {
+    document.getElementById("topUpButton").disabled = false;
+  }
+}
+
+document.getElementById("jumlahInput").addEventListener("input", checkInput);
+var radioButtons = document.querySelectorAll('input[name="nominal"]');
+radioButtons.forEach(function(radioButton) {
+  radioButton.addEventListener("change", checkInput);
+});
+
+</script>
+
+</body>
+</html>
