@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="theme-color" content="8b0000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutasi Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        
+        .mutasi {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: -30%;
+            
+        }
+
+        .mutasi th, .mutasi td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .mutasi th {
+            background-color: #f2f2f2;
+        }
+
+        .mutasi tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .mutasi tr:hover {
+            background-color: #ddd;
+        }
+
+        .mutasi-cr {
+            color: green;
+            font-weight: bold;
+        }
+        
+        
+  .bottom-box {
+            position: fixed;
+            bottom: 0;
+            margin-left: -18px;
+            width: 100%;
+            background: #8b0000;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            color:white;
+            justify-content: space-evenly;
+            padding: 10px;
+            z-index: 999; /* Pastikan box berada di atas konten lain */
+        }
+
+        .bottom-box .icon-text {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bottom-box .icon-text img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            border-radius: 50%; /* Bulatkan sudut ikon */
+        }
+
+        .bottom-box .icon-text span {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Catatan Transaksi</h2>
+
+<table class="mutasi">
+  <tr>
+    <th>Tanggal</th>
+    <th>Keterangan</th>
+    <th>Jumlah</th>
+  </tr>
+  <tr>
+    <td>30/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr><br>
+  <tr>
+    <td>30/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr>
+  <br>
+  <tr>
+    <td>30/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr><br>
+  <tr>
+    <td>30/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr><br>
+  <tr>
+    <td>30/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr><br>
+  <tr>
+    <td>21/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr><br>
+  <tr>
+    <td>21/12/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr><br>
+  <tr>
+    <td>06/07/21</td>
+    <td>Transfer Deposit Investasi</td>
+    <td class="mutasi-cr">Rp. 1.000.000</td>
+  </tr>
+</table>
+  <div class="bottom-box">
+    <div class="icon-text" onclick="window.location.href='selanjutnya.html'">
+        <img src="https://i.ibb.co/gm4Q9sX/1000005428-removebg-preview.png" alt="Homepage">
+        <span>Utama</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='tugas.html'">
+        <img src="https://i.ibb.co/k2xnTfp/CC-20240412-141926.png" alt="Tasks">
+        <span>Tugas</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='team.html'">
+        <img src="https://i.ibb.co/NZtDjST/CC-20240412-140751.png" alt="Team">
+        <span>Tim</span>
+    </div>
+    <div class="icon-text" onclick="window.location.href='my_account.html'">
+        <img src="https://i.ibb.co/vhYS1J4/1000005427-removebg-preview.png" alt="My Account">
+        <span>Akun</span>
+    </div>
+    </div>
+
+</body>
+</html>
