@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="8b0000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo</title>
+    <style>
+        .saldo-box {
+            background-color: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .menu-boxx {
+            width: 365px;
+            height: 240px;
+            overflow-y: auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 0;
+            background-color: #fff; /* Warna latar belakang box menu */
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 2px solid #222;
+        }
+
+        .menu-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .menu-item a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        .box-shadow-menu {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .box {
+            position: relative;
+            height: 100px;
+            width: 365px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+            margin-top: -990px;
+        }
+
+        .icon-text {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .icon-text .item {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .icon-text .item img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .icon-text .item:first-child {
+            margin-right: 69px;
+            margin-top: -10px;
+        }
+
+        .icon-text .item:last-child {
+            margin-left: 69px;
+            margin-top: -10px;
+        }
+
+        
+        /* Tambahkan gaya untuk tombol logout */
+        .logout-button {
+            position: fixed;
+            bottom: 70px; /* Naikkan tombol logout sekitar 50px dari bottom box */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            color: #8b0000;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid #8b0000;
+            cursor: pointer;
+            z-index: 999; /* Pastikan tombol logout berada di atas konten lain */
+        }
+    </style>
+</head>
+<body>
+
+<div class="saldo-box">
+    <h2>Saldo Anda</h2>
+    <p>Rp. 119.000.000.00</p>
+</div>
+
+<div class="container">
+    <div class="menu-boxx">
+        <div class="menu-item">
+            <img src="https://i.ibb.co/52MMq0m/1000005353-removebg-preview.png" alt="Riwayat Top up">
+            <a href="topup.html">Riwayat Top up</a>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.ibb.co/zb2nsMM/1000005354-removebg-preview.png" alt="Riwayat Penarikan">
+            <a href="riwayat_penarikan.html">Riwayat Penarikan</a>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.ibb.co/KbBF42F/1000005358-removebg-preview.png" alt="Profil">
+            <a href="profil.html">Profil</a>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.ibb.co/3Fq4gT7/1000005352-removebg-preview.png" alt="Pesan Saya">
+            <a href="pesan.html">Pesan Saya</a>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.ibb.co/tB4bXHD/1000005360-removebg-preview.png" alt="Layanan Pelanggan">
+            <a href="layanan.html">Layanan Pelanggan</a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Tombol Logout -->
+<button class="logout-button" onclick="window.location.href='logout.html'">Logout</button>
+
+</body>
+</html>
