@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#8b0000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Penarikan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .pesan {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 999;
+            width: 80%; /* Menyesuaikan lebar pesan */
+            display: none; /* Sembunyikan pesan secara default */
+        }
+        .container {
+            width: 70%; /* Lebarkan elemen formulir */
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #8b0000;
+        }
+        .tombol-kembali {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulir Penarikan Dana</h2>
+        <form id="penarikanForm" onsubmit="return false;">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="nomor_rekening">Nomor Rekening:</label>
+            <input type="text" id="nomor_rekening" name="nomor_rekening" required>
+
+            <label for="jumlah">Jumlah yang ingin ditarik:</label>
+            <input type="number" id="jumlah" name="jumlah" min="0" required>
+
+            <label for="alasan">Alasan Penarikan:</label>
+            <textarea id="alasan" name="alasan" rows="4" required></textarea>
+
+            <input type="submit" value="Submit" onclick="tampilkanPesan()">
+        </form>
+    </div>
+
+    <div class="pesan" id="pesan">
+        <h2>Mohon Maaf Penarikan Tidak Dapat Diproses</h2>
+        <p>Harap Selesaikan Pembayaran Kontrak Terlebih Dahulu atau Hubungi Admin. Terima Kasih.</p>
+        <a href="utama.html" class="tombol-kembali">Kembali ke Halaman Utama</a>
+    </div>
+
+    <script>
+        function tampilkanPesan() {
+            var pesanElement = document.getElementById("pesan");
+            pesanElement.style.display = "block";
+            var formElement = document.querySelector(".container");
+            formElement.style.display = "none";
+        }
+    </script>
+</body>
+</html>
